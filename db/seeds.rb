@@ -21,13 +21,15 @@ end
         description:Faker::Lorem.paragraph
     )
 end
+strength = ['Strong', 'Weak', 'Average'].sample
+
 Hero.all.each do |hero|
-    Power.all.sample(12).each do |power|
-      HeroPower.create!(
-        hero_id: hero.id,
-        power_id: power.id,
-        strength: Faker::Games::Overwatch.hero 
-      )
-    end
+  Power.all.sample(3).each do |power|
+    HeroPower.create!(
+      hero_id: hero.id,
+      power_id: power.id,
+      strength: strength
+    )
   end
+end
 puts "✅ Done seeding!"
