@@ -7,7 +7,7 @@ class PowersController < ApplicationController
     def show
         power = Power.find(params[:id])
         if power
-            render json:power, status: :ok
+            render json:power,  status: :ok
         else
             render json:{error:"power not found"}, status: :not_found
         end 
@@ -15,6 +15,7 @@ class PowersController < ApplicationController
 
     def update
         power =Power.find(params[:id])
+        # power.description="Updated description"
         if power
             power.update!(power_params)
             render json:  power
