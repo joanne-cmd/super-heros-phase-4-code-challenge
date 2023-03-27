@@ -4,4 +4,6 @@ class HerosController < ApplicationController
         heros= Hero.all
         render json: heros
     end
+    # get request of specific hero together with their powers
+    
 end
